@@ -1,4 +1,3 @@
-# app/models/user.rb
 class User < ApplicationRecord
     CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
   
