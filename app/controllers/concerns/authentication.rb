@@ -9,9 +9,9 @@ module Authentication
   
     def login(user)
         reset_session
-        active_session = user.active_sessions.create!
+        active_session = user.active_sessions.create!(user_agent: request.user_agent, ip_address: request.ip)
         session[:current_active_session_id] = active_session.id
-    end
+      end
   
     def logout
         active_session = ActiveSession.find_by(id: session[:current_active_session_id])
